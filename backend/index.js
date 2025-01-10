@@ -3,7 +3,7 @@ import cors from 'cors';
 import mongoose from 'mongoose';
 
 import { registerValidation, loginValidation } from './validations.js';
-import { handleValidationErrors}  from './utils/index.js';
+import { handleValidationErrors, checkAuth}  from './utils/index.js';
 import { UserController } from './controllers/index.js';
 
 const app = express();
@@ -13,6 +13,7 @@ app.use(cors()); // ВАЖНО ДЛЯ ЗАПРОСА МЕЖДУ ЛОКАЛЬНЫ
 
 app.post('/auth/login', loginValidation, handleValidationErrors, UserController.login)
 app.post('/auth/register', registerValidation, handleValidationErrors, UserController.register);
+app.get('/auth/me', checkAuth, UserController.getMe);
 
 
 app.listen(5555, (err) => {

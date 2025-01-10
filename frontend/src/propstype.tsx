@@ -14,6 +14,11 @@ export interface FormValueslogin {
   password: string;
   email: string;
 }
+export interface FormValuesRegister {
+  password: string;
+  email: string;
+  fullName: string;
+}
 
 
 export interface Registerprops {
@@ -24,3 +29,14 @@ export interface Registerprops {
   token: string;
   avatarUrl?: string;
 }
+
+
+// export interface AuthResponse {
+//   // Укажите поля, которые ожидаете от ответа
+//   token: string;
+//   user: {
+//     id: string;
+//     email: string;
+//     name: string;
+//   };
+// }

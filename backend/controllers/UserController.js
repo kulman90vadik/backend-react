@@ -24,7 +24,7 @@ export const register = async (req, res) => {
       {
         _id: user._id,
       },
-      "secretWww", // 
+      "secret1234", // 
       {
         expiresIn: "30d", // окен будет действителен в течение 30 дней.
       }
@@ -64,7 +64,7 @@ export const login = async (req, res) => {
       });
     }
     // если всё ок
-    const token = jwt.sign({ _id: user._id }, "", {
+    const token = jwt.sign({ _id: user._id }, "secret1234", {
       expiresIn: "30d",
     });
 
